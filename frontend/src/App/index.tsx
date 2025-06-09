@@ -35,10 +35,10 @@ const pages = [
   { path: '/exercise/redefine-challenge', label: 'Redefine Challenge', color: 'black' },
   { path: '/exercise/chapter3', label: 'Chapter 3', color: 'black' },
   { path: '/exercise/values', label: 'Values', color: 'black' },
-  { path: '/exercise/chapter4', label: 'Chapter 4', color: 'black'},
+  { path: '/exercise/chapter4', label: 'Chapter 4', color: 'black' },
   { path: '/exercise/from-future-to-present', label: 'From Future to Present', color: 'black' },
   { path: '/exercise/future-pitch', label: 'Future Pitch', color: 'black' },
-  {path: '/exercise/reflection', label: 'Reflection', color: 'black'},
+  { path: '/exercise/reflection', label: 'Reflection', color: 'black' },
 ];
 
 function App() {

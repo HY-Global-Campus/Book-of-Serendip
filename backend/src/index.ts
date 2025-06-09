@@ -6,15 +6,13 @@ import { dbSync } from './services/database.js';
 import BookOneRouter from './controllers/BookOneController.js'
 import cors from 'cors';
 import chatbotRouter from './controllers/chatbot.js';
-import serendipMoocWhitelistRouter from './controllers/serendip-mooc-whitelist.js';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/login', loginRouter);
-app.use('/chatbot', authMiddleware,chatbotRouter)
+app.use('/chatbot', authMiddleware, chatbotRouter)
 app.use('/bookones', authMiddleware, BookOneRouter);
-app.use('/serendip-mooc-whitelist', serendipMoocWhitelistRouter);
 
 app.get('/', authMiddleware, async (_, res) => {
   res.status(200).send('Success');
