@@ -23,7 +23,7 @@ import MindMapNode from './MindMapNode';
 import MindMapEdge from './MindMapEdge';
 import RootNode from './RootNode';
 
-const infotext = `Starting from the written definition of the challenge you chose, map out the elements of the system in which the problem exists. You can do that with the help of the content you find in the game.`;
+const infotext = `Starting from the written definition of the challenge you chose, map out the elements of the system in which the problem exists. You can do that with the help of the content you find in BMC.`;
 
 const selector = (state: RFState) => ({
   nodes: state.nodes,
@@ -138,12 +138,16 @@ function Flow() {
         defaultEdgeOptions={defaultEdgeOptions}
       >
         <Controls showInteractive={true} />
-        <Panel position="top-left" >
-          <div style={{ paddingLeft: '300px' }}>
-            <InfoIcon infoText={infotext} />
+        <Panel position="top-left">
+          <div style={{ paddingLeft: '430px' }}>
+          <InfoIcon infoText={infotext} />
           </div>
-          <h1> Map of connections</h1>
-          Analyze your chosen challenge. Think how does the content that you find in the game relates to the challenge you chose. Make the most of the OWL boxes, by asking questions from the perspective of your challenge.
+          <div style={{ maxWidth: '100%', padding: '10px 50px', borderRadius: '8px' }}>
+          <h1 style={{ marginTop: 0 }}>Map of BMC connections</h1>
+          <p>
+            Analyze your chosen challenge. Make the most of the OWL boxes, by asking questions from the perspective of your challenge.
+          </p>
+        </div>
         </Panel>
       </ReactFlow>
     </>

@@ -18,7 +18,7 @@ const Chapter4Banner: React.FC = () => {
     <div style={containerStyle}>
       <div style={pageStyle}>
       <h1 style={headingStyle}>Chapter 4</h1>
-      <p> Fill in the following sections while you're playing in level 9 </p>
+      <p> Financial study ensures sustainability and profitability </p>
       </div>
     </div>
   );

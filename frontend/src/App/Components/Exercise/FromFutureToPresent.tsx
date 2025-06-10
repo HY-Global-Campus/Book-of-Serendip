@@ -20,7 +20,7 @@ const FromFutureToPresentExercise: React.FC = () => {
     left: {
       title: 'From Future to Present',
       question: `
-Thinking about the futures that could be for the problem you’ve chosen. What are the probable, possible and desirable futures for this specific aspect you want to change? Think about how futures are different when they are based on reactions or actions (discuss difference between mitigation and adaptation—and perhaps beyond those two, creation?). Think about the different stakeholders and interests that can also influence the system. Imagine the multiple perspectives they represent, their motivations and their desires. Now, choose one desirable future for your problem and the aspect you are working with, and describe it. It is the year 2050: What is the state of the problem?`,
+Thinking about the futures that could be for the problem you have chosen. What are the probable, possible and desirable futures for this specific aspect you want to change? Think about how futures are different when they are based on reactions or actions (discuss difference between mitigation and adaptation—and perhaps beyond those two, creation?). Think about the different stakeholders and interests that can also influence the system. Imagine the multiple perspectives they represent, their motivations and their desires. Now, choose one desirable future for your problem and the aspect you are working with, and describe it. It is the year 2050: What is the state of the problem?`,
       answer: bookOne?.exercises.fromFutureToPresentAnswer.left.answer || '',
     },
     right: {

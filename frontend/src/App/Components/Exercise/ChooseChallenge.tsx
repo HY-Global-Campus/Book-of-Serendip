@@ -5,7 +5,13 @@ import { ChooseChallenge } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
 
 
-const chosenChallengeInfoText = `Find one problem related to climate change that you find interesting. Use the OWL box in the beginning of this training programme to get familiar with the different challenges. Remember there are many aspects to climate change, not only  meteorological but also ecological, social, cultural, economic, political  and others. Choose a problem that calls to you, something you want to explore more.
+const chosenChallengeInfoText = `
+Find a business-related challenge that you find meaningful or interesting.
+You can explore a range of challenges faced in the business world. 
+Remember, these challenges can span multiple dimensions—not just financial, but also social, cultural, operational, technological, environmental, ethical, and more.
+
+Choose one problem that resonates with you. I should be something you would like to explore further using the Business Model Canvas (BMC). 
+Aim to identify a real-world issue that could benefit from a fresh, well-structured business model solution.
 `;
 
 const challengeDescriptionInfoText = `Write a definition for the problem you have chosen. What exactly does it mean? Why is it a problem? What are the causes and  consequences it implies?`;
@@ -15,12 +21,12 @@ const ChooseChallengeExercise: React.FC = () => {
   const [answers, setAnswers] = useState<ChooseChallenge>({
     left: {
       title: 'Chosen Challenge',
-      description: 'Choose a challenge of the boreal forest caused by climate change',
+      description: 'Explore the chosen challenge and explain it in the text box below',
       answer: bookOne?.exercises.chooseChallengeAnswer.left.answer || '',
     },
     right: {
       title: 'Challenge description',
-      description: 'Describe your chosen challenge',
+      description: 'Describe your chosen challenge using BMC in the text box below',
       answer: bookOne?.exercises.chooseChallengeAnswer.right.answer || '',
     },
   });

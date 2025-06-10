@@ -1,7 +1,7 @@
 
 import { CSSProperties } from 'react';
-import owl from '../../../assets/serendip_owl.jpeg'
-import icons from '../../../assets/Icons_all.png'
+import bg from '../../../assets/background.png'
+import logo from '../../../assets/logo-hy-mooc.png'
 // import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 // import { debounce } from 'lodash';
 // import { getBookOneByUserId, updateBookOne, BookOne } from '../../api/bookOneService';
@@ -82,10 +82,10 @@ function FrontPage() {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100vh',
+    height: '86.2%',
     color: 'white',
     fontFamily: 'Arial, sans-serif',
-    background: 'linear-gradient(to top, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0)) 100%',
+    background: 'linear-gradient(to top, rgba(107, 143, 175, 0.75) 30%, rgba(0, 0, 0, 0)) 100%',
     paddingTop: '120px',
 
   };
@@ -151,7 +151,7 @@ function FrontPage() {
        <style>
         {`
           body {
-  background: url(${owl});
+  background: url(${bg});
   background-size: cover;
   background-position: center;
 }
@@ -164,9 +164,9 @@ function FrontPage() {
     <div style={containerStyle}>
 
         
-      <h1 style={h1style}>Book of Serendip</h1>
+      <h1 style={h1style}>Business Model Canvas</h1>
 
-      <img src={icons} alt='chapter icons' style={iconsStyle} />
+      <img src={logo} alt='HY MOOC logo' style={iconsStyle} />
 
     </div>
     </>

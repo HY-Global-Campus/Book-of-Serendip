@@ -3,10 +3,10 @@ import ExpandingTextArea from './ExpandingTextarea';
 import { containerStyle, panelStyle, separatorStyle } from './styles';
 import { Values } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
-import treeOfValues from '../../../assets/treeOfValues.png';
+import valueProposition from '../../../assets/value_proposition.jpg'
 
 
-const infotext = `Choose the values that guide your sustainability actions. What is important for you?`;
+const infotext = `Choose the values that guide your BMC actions. What is important for you?`;
 
 const ValuesExercise: React.FC = () => {
   const { bookOne, onUpdateBookOne, loading, error, readonly } = useExerciseContext();
@@ -92,8 +92,8 @@ const ValuesExercise: React.FC = () => {
       </div>
       <div style={separatorStyle} />
       <div style={panelStyle}>
-        <h2>Tree of values</h2>
-        <img src={treeOfValues} alt="Tree of values" style={{ width: '100%', marginTop: '100px' }} />
+        <h2>"A successful value proposition ensures that the product or service is positioned around the customer's values ​​and needs."</h2>
+        <img src={valueProposition} alt="Value Proposition" style={{ width: '45%', marginTop: '100px' }} />
       </div>
     </div>
   );

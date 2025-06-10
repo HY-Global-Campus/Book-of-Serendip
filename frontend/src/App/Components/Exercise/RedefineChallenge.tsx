@@ -12,12 +12,12 @@ const RedefineChallengeExercise: React.FC = () => {
   const [answers, setAnswers] = useState<RedefineChallenge>({
     left: {
       title: 'Redefine the chosen challenge',
-      description: 'Is the initial chosen challenge still the focus of your future vision? Or have you found another one that caught your interest? Here you can redefine the chosen challenge based on the information you learned in the game.',
+      description: 'Is the initial chosen challenge still the focus of your future vision? Or have you found another one that caught your interest? Here you can redefine the chosen challenge based on the information you learned in BCM.',
       answer: bookOne?.exercises.redefineChallengeAnswer.left.answer || '',
     },
     right: {
-      title: 'Challenge description',
-      description: 'Describe your newly chosen challenge.',
+      title: 'Final Challenge description',
+      description: 'Describe the final version of your chosen challenge in the text box below.',
       answer: bookOne?.exercises.redefineChallengeAnswer.right.answer || '',
     },
   });

@@ -18,7 +18,7 @@ const Chapter3Banner: React.FC = () => {
     <div style={containerStyle}>
       <div style={pageStyle}>
       <h1 style={headingStyle}>Chapter 3</h1>
-      <p> Fill in the following sections while you're playing in level 8 </p>
+      <p> What value you offer and why customers should choose you? </p>
       </div>
     </div>
   );

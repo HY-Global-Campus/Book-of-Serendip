@@ -47,8 +47,11 @@ const Reflection: React.FC = () => {
       </div>
       <div style={separatorStyle} />
       <div style={panelStyle}>
-        <div style={{ textAlign: 'center', fontSize: '6rem', fontWeight: 'bold', marginTop: '50%' }}>The End</div>
-        <p> Share your Book of Serendip with this link: <br/> <a href={link}> {link} </a> </p>
+        <div style={{ textAlign: 'center', fontSize: '1rem', fontWeight: 'bold', marginTop: '10%', marginBottom:'10%' }}>Share your Book of Serendip with this link: <br/> <a href={link}> {link} </a></div>
+        <video width="640" height="360" controls>
+          <source src="https://www.example.com/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   );

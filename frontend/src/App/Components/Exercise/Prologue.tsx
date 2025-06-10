@@ -32,22 +32,27 @@ const Prologue: React.FC = () => {
       `}</style>
 
       <div style={panelStyle}>
-        <h2>Structure of the assignment</h2>
+        <h2>Structure of the course</h2>
         <p>
-          The Book includes four chapters, which for the best learning experience, you need to fill them in order:
+          This course contains four chapters. For the best learning experience, it is recommended that you complete them in the following order:
         </p>
         <ul className="star-circle-list">
-          <h3> chapter 1 </h3>
-          <li>Choose and define a challenge</li>
-          <h3> chapter 2 </h3>
-          <li>Map of connections</li>
-          <li>Identify leverage points</li>
-          <li>Redefine the chosen challenge</li>
-          <h3> chapter 3 </h3>
-          <li>Values</li>
-          <h3> chapter 4 </h3>
-          <li>Future vision and steps to achieve it</li>
-          <li>My future vision pitch</li>
+          <h3> Chapter 1 </h3>
+          <li>Feasibility</li>
+          <li>Key Partners</li>
+          <li>Key Activities</li>
+          <li>Key Resources</li>
+          <h3> Chapter 2 </h3>
+          <li>Desirability</li>
+          <li>Customer Relationships</li>
+          <li>Customer Segments</li>
+          <li>Channels</li>
+          <h3> Chapter 3 </h3>
+          <li>Value Propostions</li>
+          <h3> Chapter 4 </h3>
+          <li>Viability</li>
+          <li>Cost Structure</li>
+          <li>Revenue Streams</li>
         </ul>
       </div>
 
@@ -56,20 +61,26 @@ const Prologue: React.FC = () => {
       <div style={panelStyle}>
         <h2>Peer review criteria</h2>
         <p>
-          This assignment will be peer reviewed, so to complete it, you need to submit your Book on the course platform, once it is ready. You will receive two anonymous reviews for it. You will also need to provide three reviews for other peers’ Books anonymously. The selection of the Books that you are requested to peer review is done automatically. The peer review will be done using a Likert scale of 1 (Strongly disagree) to 5 (Strongly agree).
+          The course assignments will be peer reviewed. To complete it, you need to submit your assignment on the course platform, once it is ready. You will receive two anonymous reviews for it. You will also need to provide three reviews for other peers’ assignment anonymously. The selection of the assignments that you are requested to peer review is done automatically. The peer review will be done using a Likert scale of 1 (Poor) to 5 (Excellent).
         </p>
         <p>
-          The peer review criteria for the Book of Serendip are:
+          The peer review criteria for the assignment are:
         </p>
         <ul className="star-circle-list">
           <li>The challenge is clearly described</li>
-          <li>The map shows connections between information from at least three levels of the episode</li>
+          <li>The context shows connections between information from at least three levels of the episode</li>
           <li>At least two leverage points were identified</li>
           <li>The future vision is clearly based on the values of the student</li>
           <li>The student explained a credible desirable future and steps leading to it (not a dream)</li>
           <li>The future vision pitch was coherent</li>
           <li>The student reflected on their learning journey in this episode</li>
         </ul>
+        <p>
+          If you have any questions about the course assignments and their grading criteria, or anything else related to the course content, please contact mooc@cs.helsinki.fi. 
+        </p>
+        <p>
+          We will respond to questions as soon as possible within three days.
+        </p>
       </div>
     </div>
   );

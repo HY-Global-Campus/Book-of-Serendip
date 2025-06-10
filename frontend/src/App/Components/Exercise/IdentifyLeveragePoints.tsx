@@ -5,7 +5,7 @@ import { IdentifyLeveragePoints } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
 
 
-const infotext = `After choosing your leverage points, look again over your map, now focusing on the different leverage points you’ve identified and think how difficult or easy they are to change, as you’ve  evaluated them. Think about the different kinds of change that can be used to influence a system, for example: technology, investment, infrastructure,  policies, regulations, awareness, attitudes, values. Think also about feedback cycles and how their dynamics can be influenced. Choose one  aspect you can and want to change in order to influence the system.`;
+const infotext = `After choosing your leverage points, look again over your map, now focusing on the different leverage points you have identified and think how difficult or easy they are to change, as you have evaluated them. Think about the different kinds of change that can be used to influence a system (technology, investment, infrastructure,  policies, regulations, awareness, attitudes, values, etc.). Think also about feedback cycles and how their dynamics can be influenced. Choose one  aspect you can and want to change in order to influence the system.`;
 
 const IdentifyLeveragePointsExercise: React.FC = () => {
   const { bookOne, onUpdateBookOne, loading, error, readonly } = useExerciseContext();

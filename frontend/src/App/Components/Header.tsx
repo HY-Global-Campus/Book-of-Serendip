@@ -1,6 +1,6 @@
 import hyLogoWhite from '../../assets/HY-Logo_White.svg'
 import borealforest_icon from '../../assets/Icon1_Milton_O.png'
-import borealforest from '../../assets/HY_Serendip-BOREALFOREST.jpg'
+import bg from '../../assets/background.png'
 import { CSSProperties } from 'react';
 
 const Header: React.FC = () => {
@@ -9,7 +9,7 @@ const Header: React.FC = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '10px',
-        background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${borealforest})`,
+        background: `linear-gradient(rgba(107, 143, 175, 0.95), rgba(0, 0, 0, 0.15)), url(${bg})`,
         backgroundPosition: 'up',
         color: 'white',
         height: '100px',
@@ -45,7 +45,7 @@ const Header: React.FC = () => {
         <header style={headerStyle}>
             <div style={titlestyle}>
                 <img src={borealforest_icon} alt='Boreal forest icon' style={iconstyle} />
-                <h1 style={titleStyle}>Boreal Forest</h1>
+                <h1 style={titleStyle}>Business Model Canvas</h1>
             </div>
             <img src={hyLogoWhite} alt="Logo" style={logoStyle} />
         </header>
