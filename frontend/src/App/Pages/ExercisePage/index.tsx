@@ -65,9 +65,6 @@ const ExercisePage: React.FC = () => {
     debounce((updatedBook: Partial<BookOne>) => mutation.mutate(updatedBook), 500)
   ).current;
 
-  //const pageStyle: CSSProperties = {
-  //  padding: '0px 20px',
-  //};
 
   if (error) {
     if (axios.isAxiosError(error) && error.response?.status === 404) {
