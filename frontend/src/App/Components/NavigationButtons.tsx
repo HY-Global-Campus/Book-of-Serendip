@@ -1,30 +1,15 @@
 import React, { useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../Components/components.css';
 
 interface NavigationButtonsProps {
   pages: { path: string; label: string; color: string }[];
   currentPage: number;
 }
 
-const navigationButtonStyle: React.CSSProperties = {
-  position: 'absolute',
-  top: '0',
-  bottom: '0',
-  width: '60px', // Adjust the width as needed
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  fontSize: '60px',
-  cursor: 'pointer',
-  zIndex: '1000',
-};
-
 const NavigationButtons: React.FC<NavigationButtonsProps> = ({ pages, currentPage }) => {
   const navigate = useNavigate();
 
-
-
-  // Memoize the navigation functions to prevent unnecessary re-renders
   const goToPreviousPage = useCallback(() => {
     if (currentPage > 0) {
       navigate(pages[currentPage - 1].path);
@@ -37,56 +22,67 @@ const NavigationButtons: React.FC<NavigationButtonsProps> = ({ pages, currentPag
     }
   }, [currentPage, navigate, pages]);
 
-  // Add event listeners for keydown events
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft') {
-        goToPreviousPage();
-
-      } else if (event.key === 'ArrowRight') {
-        goToNextPage();
-      }
+      if (event.key === 'ArrowLeft') goToPreviousPage();
+      else if (event.key === 'ArrowRight') goToNextPage();
     };
-
     window.addEventListener('keydown', handleKeyDown);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [goToNextPage, goToPreviousPage]);
 
-  if (currentPage < 0) {
-    return null;
-  }
+  if (currentPage < 0) return null;
 
   return (
-    <div>
+    <>
+      {/* Mobile buttons */}
+      <div className="nav-buttons-mobile">
+        {currentPage > 0 && (
+          <button
+            className="nav-btn-mobile"
+            style={{ color: pages[currentPage]?.color || 'black' }}
+            onClick={goToPreviousPage}
+          >
+            {'<'}
+          </button>
+        )}
+        {currentPage < pages.length - 1 && (
+          <button
+            className="nav-btn-mobile"
+            style={{ color: pages[currentPage]?.color || 'black' }}
+            onClick={goToNextPage}
+          >
+            {'>'}
+          </button>
+        )}
+      </div>
+
+      {/* Desktop arrows */}
       {currentPage > 0 && (
         <div
+          className="nav-arrow left"
+          style={{ color: pages[currentPage]?.color || 'black' }}
           onClick={goToPreviousPage}
-          style={{
-            ...navigationButtonStyle,
-            left: '0', // Position the button at the very left edge
-            color: pages[currentPage]?.color || 'black',
-          }}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === 'Enter' && goToPreviousPage()}
         >
           {'<'}
         </div>
       )}
       {currentPage < pages.length - 1 && (
         <div
+          className="nav-arrow right"
+          style={{ color: pages[currentPage]?.color || 'black' }}
           onClick={goToNextPage}
-          style={{
-            ...navigationButtonStyle,
-            right: '0', // Position the button at the very right edge
-            color: pages[currentPage]?.color || 'black',
-          }}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === 'Enter' && goToNextPage()}
         >
           {'>'}
         </div>
       )}
-    </div>
+    </>
   );
 };
 

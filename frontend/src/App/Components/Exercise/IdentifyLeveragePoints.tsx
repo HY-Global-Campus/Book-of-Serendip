@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import { containerStyle, panelStyle, separatorStyle } from './styles';
+import '../Exercise/exercises.css'
 import { IdentifyLeveragePoints } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
 
@@ -71,53 +71,55 @@ Look at your Map of Connections and estimate how easy/hard it is to affect diffe
 
 
   return (
-    <div style={containerStyle}>
-      <div style={panelStyle}>
-        <h2>{answers.left.title}</h2>
-        <p>{answers.left.description}</p>
-        <h3>{answers.left.question1.title}</h3>
-        <ExpandingTextArea
-          id="identify-leverage-points-question1"
-          instructionText=""
-          value={answers.left.question1.answer}
-          onChange={handleAnswerChange('left', 'question1')}
-          rows={2}
-          readonly={readonly}
-        />
-        <h3>{answers.left.question2.title}</h3>
-        <ExpandingTextArea
-          id="identify-leverage-points-question2"
-          instructionText=""
-          value={answers.left.question2.answer}
-          onChange={handleAnswerChange('left', 'question2')}
-          rows={2}
-          readonly={readonly}
-        />
-        <h3>{answers.left.question3.title}</h3>
-        <ExpandingTextArea
-          id="identify-leverage-points-question3"
-          instructionText=""
-          value={answers.left.question3.answer}
-          onChange={handleAnswerChange('left', 'question3')}
-          rows={2}
-          readonly={readonly}
-        />
-      </div>
-      <div style={separatorStyle} />
-      <div style={panelStyle}>
-        <h2>{answers.right.title}</h2>
-        <p><i>{infotext}</i></p>
-        <p>{answers.right.description}</p>
-        <ExpandingTextArea
-          id="identify-leverage-points-right"
-          instructionText=""
-          value={answers.right.answer}
-          onChange={handleAnswerChange('right')}
-          rows={15}
-          readonly={readonly}
-        />
-      </div>
+  <div className="exercise-container">
+    <div className="exercise-panel">
+      <h2>{answers.left.title}</h2>
+      <p>{answers.left.description}</p>
+      <h3>{answers.left.question1.title}</h3>
+      <ExpandingTextArea
+        id="identify-leverage-points-question1"
+        instructionText=""
+        value={answers.left.question1.answer}
+        onChange={handleAnswerChange('left', 'question1')}
+        rows={2}
+        readonly={readonly}
+      />
+      <h3>{answers.left.question2.title}</h3>
+      <ExpandingTextArea
+        id="identify-leverage-points-question2"
+        instructionText=""
+        value={answers.left.question2.answer}
+        onChange={handleAnswerChange('left', 'question2')}
+        rows={2}
+        readonly={readonly}
+      />
+      <h3>{answers.left.question3.title}</h3>
+      <ExpandingTextArea
+        id="identify-leverage-points-question3"
+        instructionText=""
+        value={answers.left.question3.answer}
+        onChange={handleAnswerChange('left', 'question3')}
+        rows={2}
+        readonly={readonly}
+      />
     </div>
+
+    <div className="exercise-separator" />
+
+    <div className="exercise-panel">
+      <h2>{answers.right.title}</h2>
+      <p><i>{infotext}</i></p>
+      <p>{answers.right.description}</p>
+      <ExpandingTextArea
+        id="identify-leverage-points-right"
+        instructionText=""
+        value={answers.right.answer}
+        onChange={handleAnswerChange('right')}
+        rows={15}
+        readonly={readonly}
+      />
+    </div>
+  </div>
   );
 };
 

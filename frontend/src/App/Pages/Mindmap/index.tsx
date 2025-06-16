@@ -139,15 +139,15 @@ function Flow() {
       >
         <Controls showInteractive={true} />
         <Panel position="top-left">
-          <div style={{ paddingLeft: '430px' }}>
-          <InfoIcon infoText={infotext} />
+          <div className="flow-info-wrapper">
+            <InfoIcon infoText={infotext} />
           </div>
-          <div style={{ maxWidth: '100%', padding: '10px 50px', borderRadius: '8px' }}>
-          <h1 style={{ marginTop: 0 }}>Map of BMC connections</h1>
-          <p>
-            Analyze your chosen challenge. Make the most of the OWL boxes, by asking questions from the perspective of your challenge.
-          </p>
-        </div>
+          <div className="flow-panel">
+            <h1 className="flow-header">Map of BMC connections</h1>
+            <p>
+              Analyze your chosen challenge. Make the most of the OWL boxes, by asking questions from the perspective of your challenge.
+            </p>
+          </div>
         </Panel>
       </ReactFlow>
     </>

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import { containerStyle, panelStyle, separatorStyle } from './styles';
+import '../Exercise/exercises.css'
 import { FromFutureToPresent } from '../../../types/exercises';
 import StyledTextArea from './StyledTextArea';
 import { useExerciseContext } from './ExerciseContext';
@@ -98,99 +98,42 @@ Make a timeline 2024-2050. Mark down all the significant steps and events that l
   if (error) return <div>{error}</div>;
 
   return (
-    <div style={containerStyle}>
-      <div style={panelStyle}>
-        <h2>{answers.left.title}</h2>
-        <ReadMore><i>{infotextQ1}</i></ReadMore>
-        <p>{answers.left.question}</p>
-        <ExpandingTextArea
-          id="from-future-to-present-left"
-          instructionText=""
-          value={answers.left.answer}
-          onChange={handleAnswerChange('left')}
-          rows={16}
-          readonly={readonly}
-        />
-      </div>
-      <div style={separatorStyle} />
-      <div style={panelStyle}>
-        <h2>{answers.right.title}</h2>
-        <ReadMore><i>{infotextQ2}</i></ReadMore>
-        <p>{answers.right.description}</p>
-        <div style={{ marginTop: '1.5rem' }}>
-          <div style={rowStyle} >
-            <div style={numberStyle}>
-              2050
-            </div>
-            <StyledTextArea
-              id="from-future-to-present-question1"
-              value={answers.right.question1.answer}
-              onChange={handleAnswerChange('right', 'question1')}
-              readonly={readonly}
-            />
+  <div className="exercise-container">
+    <div className="exercise-panel">
+      <h2>{answers.left.title}</h2>
+      <ReadMore><i>{infotextQ1}</i></ReadMore>
+      <p>{answers.left.question}</p>
+      <ExpandingTextArea
+        id="from-future-to-present-left"
+        instructionText=""
+        value={answers.left.answer}
+        onChange={handleAnswerChange('left')}
+        rows={16}
+        readonly={readonly}
+      />
+    </div>
 
-          </div>
-          <div style={rowStyle}>
-            <div style={numberStyle}>
-              2045
-            </div>
+    <div className="exercise-separator" />
 
+    <div className="exercise-panel">
+      <h2>{answers.right.title}</h2>
+      <ReadMore><i>{infotextQ2}</i></ReadMore>
+      <p>{answers.right.description}</p>
+      <div style={{ marginTop: '1.5rem' }}>
+        {[2050, 2045, 2040, 2035, 2030, 2024].map((year, index) => (
+          <div className="exercise-timeline-row" key={year}>
+            <div className="exercise-timeline-year">{year}</div>
             <StyledTextArea
-              id="from-future-to-present-question2"
-              value={answers.right.question2.answer}
-              onChange={handleAnswerChange('right', 'question2')}
+              id={`from-future-to-present-question${index + 1}`}
+              value={answers.right[`question${index + 1}`].answer}
+              onChange={handleAnswerChange('right', `question${index + 1}`)}
               readonly={readonly}
             />
           </div>
-          <div style={rowStyle}>
-            <div style={numberStyle}>
-              2040
-            </div>
-            <StyledTextArea
-              id="from-future-to-present-question3"
-              value={answers.right.question3.answer}
-              onChange={handleAnswerChange('right', 'question3')}
-              readonly={readonly}
-            />
-          </div>
-          <div style={rowStyle}>
-            <div style={numberStyle}>
-              2035
-            </div>
-            <StyledTextArea
-              id="from-future-to-present-question4"
-              value={answers.right.question4.answer}
-              onChange={handleAnswerChange('right', 'question4')}
-              readonly={readonly}
-            />
-          </div>
-          <div style={rowStyle}>
-            <div style={numberStyle}>
-              2030
-            </div>
-            <StyledTextArea
-              id="from-future-to-present-question5"
-              value={answers.right.question5.answer}
-              onChange={handleAnswerChange('right', 'question5')}
-              readonly={readonly}
-            />
-
-          </div>
-          <div style={rowStyle}>
-            <div style={numberStyle}>
-              2024
-            </div>
-            <StyledTextArea
-              id="from-future-to-present-question6"
-              value={answers.right.question6.answer}
-              onChange={handleAnswerChange('right', 'question6')}
-              readonly={readonly}
-            />
-
-          </div>
-        </div>
+        ))}
       </div>
     </div>
+  </div>
   );
 };
 

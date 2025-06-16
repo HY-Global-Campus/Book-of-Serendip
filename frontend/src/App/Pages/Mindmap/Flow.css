@@ -1,3 +1,4 @@
+/* Mobile-first defaults */
 
 .reactflow-wrapper {
   width: 100%;
@@ -93,3 +94,30 @@ body,
   pointer-events: all;
 }
 
+/* index */
+
+.flow-panel {
+  max-width: 100%;
+  padding: 16px 25px;
+  border-radius: 8px;
+}
+
+.flow-header {
+  margin-top: 0;
+}
+
+.flow-info-wrapper {
+  padding-left: 230px;
+  padding-bottom: 10px;
+}
+
+/* Tablet & Desktop styles (≥ 512px) */
+@media (min-width: 512px) {
+  .flow-info-wrapper {
+    padding-left: 430px;
+  }
+
+  .flow-panel {
+    padding: 10px 50px;
+  }
+}

@@ -1,67 +1,42 @@
 import React from 'react';
-import { containerStyle, panelStyle, separatorStyle } from './styles';
-import star from '../../../assets/star.png'
+//import { containerStyle, panelStyle, separatorStyle } from './styles';
+//import star from '../../../assets/star.png'
+import '../Exercise/exercises.css'
 
 const Prologue: React.FC = () => {
   return (
-    <div style={containerStyle}>
-      {/* Inline CSS for the custom star-in-circle bullet */}
-      <style>{`
-        .star-circle-list {
-          list-style: none;
-        }
-        .star-circle-list li {
-          position: relative;
-          padding-left: 28px;
-          margin-bottom: 15px;
-          margin-top: 15px;
-        }
-        .star-circle-list li::before {
-          content: "";
-          background: url(${star}) no-repeat center;
-          background-size: 70%; /* Adjust this value to scale the image as desired */
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 20px;
-          height: 20px;
-          border: 0.5px solid #000;  /* The circle border */
-          border-radius: 50%;      /* Makes the element a circle */
-      }
-      `}</style>
-
-      <div style={panelStyle}>
+    <div className="prologue-container">
+      <div className="prologue-panel">
         <h2>Structure of the course</h2>
         <p>
           This course contains four chapters. For the best learning experience, it is recommended that you complete them in the following order:
         </p>
         <ul className="star-circle-list">
-          <h3> Chapter 1 </h3>
+          <h3>Chapter 1</h3>
           <li>Feasibility</li>
           <li>Key Partners</li>
           <li>Key Activities</li>
           <li>Key Resources</li>
-          <h3> Chapter 2 </h3>
+          <h3>Chapter 2</h3>
           <li>Desirability</li>
           <li>Customer Relationships</li>
           <li>Customer Segments</li>
           <li>Channels</li>
-          <h3> Chapter 3 </h3>
-          <li>Value Propostions</li>
-          <h3> Chapter 4 </h3>
+          <h3>Chapter 3</h3>
+          <li>Value Propositions</li>
+          <h3>Chapter 4</h3>
           <li>Viability</li>
           <li>Cost Structure</li>
           <li>Revenue Streams</li>
         </ul>
       </div>
 
-      <div style={separatorStyle} />
+      <div className="prologue-separator" />
 
-      <div style={panelStyle}>
+      <div className="prologue-panel">
         <h2>Peer review criteria</h2>
         <p>
-          The course assignments will be peer reviewed. To complete it, you need to submit your assignment on the course platform, once it is ready. You will receive two anonymous reviews for it. You will also need to provide three reviews for other peers’ assignment anonymously. The selection of the assignments that you are requested to peer review is done automatically. The peer review will be done using a Likert scale of 1 (Poor) to 5 (Excellent).
+          The course assignments will be peer reviewed. To complete it, you need to submit your assignment on the course platform, once it is ready. You will receive two anonymous reviews for it. You will also need to provide three reviews for other peers’ assignment anonymously.
         </p>
         <p>
           The peer review criteria for the assignment are:
@@ -76,10 +51,7 @@ const Prologue: React.FC = () => {
           <li>The student reflected on their learning journey in this episode</li>
         </ul>
         <p>
-          If you have any questions about the course assignments and their grading criteria, or anything else related to the course content, please contact mooc@cs.helsinki.fi. 
-        </p>
-        <p>
-          We will respond to questions as soon as possible within three days.
+          If you have any questions, contact <a href="mailto:mooc@cs.helsinki.fi">mooc@cs.helsinki.fi</a>. We will respond within three days.
         </p>
       </div>
     </div>

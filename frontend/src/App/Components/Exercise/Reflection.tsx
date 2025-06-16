@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import { containerStyle, panelStyle, separatorStyle } from './styles';
+import '../Exercise/exercises.css'
 import { useExerciseContext } from './ExerciseContext';
 
 
@@ -32,28 +32,33 @@ const Reflection: React.FC = () => {
 
 
   return (
-    <div style={containerStyle}>
-      <div style={panelStyle}>
-        <h2>Reflection</h2>
-        <p>Reflect and answer these questions: What did you learn during this assignment? How can you use your newly acquired knowledge and skills in the sustainability action in your everyday life?</p>
-        <ExpandingTextArea
-          id="choose-challenge-text-area-1"
-          instructionText=""
-          value={answers}
-          onChange={handleAnswerChange}
-          readonly={readonly}
-          rows={15}
-        />
-      </div>
-      <div style={separatorStyle} />
-      <div style={panelStyle}>
-        <div style={{ textAlign: 'center', fontSize: '1rem', fontWeight: 'bold', marginTop: '10%', marginBottom:'10%' }}>Share your Book of Serendip with this link: <br/> <a href={link}> {link} </a></div>
-        <video width="640" height="360" controls>
-          <source src="https://www.example.com/video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+  <div className="exercise-container">
+    <div className="exercise-panel">
+      <h2>Reflection</h2>
+      <p>Reflect and answer these questions: What did you learn during this assignment? How can you use your newly acquired knowledge and skills in the sustainability action in your everyday life?</p>
+      <ExpandingTextArea
+        id="choose-challenge-text-area-1"
+        instructionText=""
+        value={answers}
+        onChange={handleAnswerChange}
+        readonly={readonly}
+        rows={15}
+      />
     </div>
+
+    <div className="exercise-separator" />
+
+    <div className="exercise-panel">
+      <div className="exercise-reflection-share">
+        Share your Book of Serendip with this link: <br />
+        <a href={link}>{link}</a>
+      </div>
+      <video className="exercise-reflection-video" controls>
+        <source src="https://www.example.com/video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
   );
 };
 

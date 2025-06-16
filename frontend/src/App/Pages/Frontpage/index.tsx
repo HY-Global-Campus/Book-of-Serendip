@@ -1,6 +1,6 @@
 
-import { CSSProperties } from 'react';
-import bg from '../../../assets/background.png'
+//import { CSSProperties } from 'react';
+import '../pages.css'
 import logo from '../../../assets/logo-hy-mooc.png'
 // import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 // import { debounce } from 'lodash';
@@ -9,7 +9,7 @@ import logo from '../../../assets/logo-hy-mooc.png'
 // type MutationContext = {
 //   previousData?: BookOne;
 // };
-function FrontPage() {
+//function FrontPage() {
 
   // const queryClient = useQueryClient();
   // const userId = sessionStorage.getItem('id');
@@ -77,18 +77,18 @@ function FrontPage() {
   //   }
   // }, [bookOne]);
 
-  const containerStyle: CSSProperties = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '86.2%',
-    color: 'white',
-    fontFamily: 'Arial, sans-serif',
-    background: 'linear-gradient(to top, rgba(107, 143, 175, 0.75) 30%, rgba(0, 0, 0, 0)) 100%',
-    paddingTop: '120px',
+  //const containerStyle: CSSProperties = {
+  //  display: 'flex',
+  //  flexDirection: 'column',
+  //  alignItems: 'center',
+  //  justifyContent: 'center',
+  //  height: '86.2%',
+  //  color: 'white',
+  //  fontFamily: 'Arial, sans-serif',
+  //  background: 'linear-gradient(to top, rgba(107, 143, 175, 0.75) 30%, rgba(0, 0, 0, 0)) 100%',
+  //  paddingTop: '120px',
 
-  };
+  //};
 
   // const inputStyle: CSSProperties = {
   //   margin: '10px 0',
@@ -102,9 +102,9 @@ function FrontPage() {
   //   textAlign: 'center'
   // };
 
-  const h1style: CSSProperties = {
-      fontSize: '100px'
-  }
+  //const h1style: CSSProperties = {
+  //    fontSize: '100px'
+  //}
 
  //  const logoStyle: CSSProperties = {
 	// width: '200px',
@@ -114,10 +114,10 @@ function FrontPage() {
  //        bottom: '10%',
  //  };
 
-  const iconsStyle: CSSProperties = {
-    width: '500px',
-    height: 'auto',
-  }
+  //const iconsStyle: CSSProperties = {
+  //  width: '500px',
+  //  height: 'auto',
+  //}
 
   // const infoIconWrapper: CSSProperties = {
   //   position: 'fixed',
@@ -146,33 +146,41 @@ function FrontPage() {
 // Enjoy writing the Book!`
 
 
+  //return (
+	//	<>
+  //    <style>
+  //      {`
+  //        body {
+  //        background: url(${bg});
+  //        background-size: cover;
+  //        background-position: center;
+  //        }
+  //        input::placeholder {
+  //          color: rgba(255, 255, 255, 0.7);
+  //          opacity: 1; /* Full opacity for placeholder */
+  //        }
+  //      `}
+  //    </style>
+  //  <div style={containerStyle}>
+  //    <h1 style={h1style}>Business Model Canvas</h1>
+  //    <img src={logo} alt='HY MOOC logo' style={iconsStyle} />
+  //  </div>
+  //  </>
+  //);
+//}
+
+//export default FrontPage;
+
+function FrontPage() {
   return (
-		<>
-       <style>
-        {`
-          body {
-  background: url(${bg});
-  background-size: cover;
-  background-position: center;
-}
-          input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-            opacity: 1; /* Full opacity for placeholder */
-          }
-        `}
-      </style>
-    <div style={containerStyle}>
-
-        
-      <h1 style={h1style}>Business Model Canvas</h1>
-
-      <img src={logo} alt='HY MOOC logo' style={iconsStyle} />
-
+    <div className="front-background">
+      <div className="front-container">
+        <h1 className="front-title">Business Model Canvas</h1>
+          <img src={logo} alt="HY MOOC logo" className="front-logo" />
+      </div>
     </div>
-    </>
   );
 }
 
 export default FrontPage;
-
 

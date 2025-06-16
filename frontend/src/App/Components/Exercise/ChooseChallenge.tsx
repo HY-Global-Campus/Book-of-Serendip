@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import { containerStyle, panelStyle, separatorStyle } from './styles';
 import { ChooseChallenge } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
+import '../Exercise/exercises.css'; // or wherever your styles live
 
-
-const chosenChallengeInfoText = `
-Find a business-related challenge that you find meaningful or interesting.
+const chosenChallengeInfoText = `Find a business-related challenge that you find meaningful or interesting.
 You can explore a range of challenges faced in the business world. 
 Remember, these challenges can span multiple dimensions—not just financial, but also social, cultural, operational, technological, environmental, ethical, and more.
 
 Choose one problem that resonates with you. I should be something you would like to explore further using the Business Model Canvas (BMC). 
-Aim to identify a real-world issue that could benefit from a fresh, well-structured business model solution.
-`;
+Aim to identify a real-world issue that could benefit from a fresh, well-structured business model solution.`;
 
-const challengeDescriptionInfoText = `Write a definition for the problem you have chosen. What exactly does it mean? Why is it a problem? What are the causes and  consequences it implies?`;
+const challengeDescriptionInfoText = `Write a definition for the problem you have chosen. What exactly does it mean? Why is it a problem? What are the causes and consequences it implies?`;
 
 const ChooseChallengeExercise: React.FC = () => {
   const { bookOne, onUpdateBookOne, loading, error, readonly } = useExerciseContext();
@@ -30,35 +27,36 @@ const ChooseChallengeExercise: React.FC = () => {
       answer: bookOne?.exercises.chooseChallengeAnswer.right.answer || '',
     },
   });
+
   useEffect(() => {
     if (bookOne) {
-      setAnswers((prev) => ({
+      setAnswers({
         left: {
-          ...prev.left,
+          ...answers.left,
           answer: bookOne.exercises.chooseChallengeAnswer.left.answer || '',
         },
         right: {
-          ...prev.right,
+          ...answers.right,
           answer: bookOne.exercises.chooseChallengeAnswer.right.answer || '',
         },
-      }));
+      });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bookOne]);
 
-
-  const handleAnswerChange = (side: 'left' | 'right') => (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const value = event.target.value;
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
+  const handleAnswerChange = (side: 'left' | 'right') => (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    setAnswers((prev) => ({
+      ...prev,
       [side]: {
-        ...prevAnswers[side],
+        ...prev[side],
         answer: value,
       },
     }));
 
     if (bookOne) {
-      bookOne.exercises.chooseChallengeAnswer[side].answer = value; 
-        onUpdateBookOne(bookOne); 
+      bookOne.exercises.chooseChallengeAnswer[side].answer = value;
+      onUpdateBookOne(bookOne);
     }
   };
 
@@ -66,9 +64,9 @@ const ChooseChallengeExercise: React.FC = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div style={containerStyle}>
-      <div style={panelStyle}>
-       <h2>{answers.left.title}</h2>
+    <div className="exercise-container">
+      <div className="exercise-panel">
+        <h2>{answers.left.title}</h2>
         <p><i>{chosenChallengeInfoText}</i></p>
         <p>{answers.left.description}</p>
         <ExpandingTextArea
@@ -79,8 +77,10 @@ const ChooseChallengeExercise: React.FC = () => {
           readonly={readonly}
         />
       </div>
-      <div style={separatorStyle} />
-      <div style={panelStyle}>
+
+      <div className="exercise-separator" />
+
+      <div className="exercise-panel">
         <h2>{answers.right.title}</h2>
         <p><i>{challengeDescriptionInfoText}</i></p>
         <p>{answers.right.description}</p>

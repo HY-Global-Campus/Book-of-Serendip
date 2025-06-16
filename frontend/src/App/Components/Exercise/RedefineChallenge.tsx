@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import { containerStyle, panelStyle, separatorStyle } from './styles';
+import '../Exercise/exercises.css'
 import { RedefineChallenge } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
 const infotext = `Write a definition for the problem you have chosen. What exactly does it mean? Why is it a problem? What are the causes and consequences it implies?`;
@@ -59,33 +59,35 @@ const RedefineChallengeExercise: React.FC = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div style={containerStyle}>
-      <div style={panelStyle}>
-        <h2>{answers.left.title}</h2>
-        <p><i>{infotext}</i></p>
-        <p>{answers.left.description}</p>
-        <ExpandingTextArea
-          id="redefine-challenge-text-area-left"
-          instructionText=""
-          value={answers.left.answer}
-          onChange={handleAnswerChange('left')}
-          readonly={readonly}
-        />
-      </div>
-      <div style={separatorStyle} />
-      <div style={panelStyle}>
-        <h2>{answers.right.title}</h2>
-        <p>{answers.right.description}</p>
-        <ExpandingTextArea
-          id="redefine-challenge-text-area-right"
-          instructionText=""
-          value={answers.right.answer}
-          onChange={handleAnswerChange('right')}
-          rows={20}
-          readonly={readonly}
-        />
-      </div>
+  <div className="exercise-container">
+    <div className="redefine-panel">
+      <h2>{answers.left.title}</h2>
+      <p><i>{infotext}</i></p>
+      <p>{answers.left.description}</p>
+      <ExpandingTextArea
+        id="redefine-challenge-text-area-left"
+        instructionText=""
+        value={answers.left.answer}
+        onChange={handleAnswerChange('left')}
+        readonly={readonly}
+      />
     </div>
+
+    <div className="exercise-separator" />
+
+    <div className="exercise-panel">
+      <h2>{answers.right.title}</h2>
+      <p>{answers.right.description}</p>
+      <ExpandingTextArea
+        id="redefine-challenge-text-area-right"
+        instructionText=""
+        value={answers.right.answer}
+        onChange={handleAnswerChange('right')}
+        rows={20}
+        readonly={readonly}
+      />
+    </div>
+  </div>
   );
 };
 

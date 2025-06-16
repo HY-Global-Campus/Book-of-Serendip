@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import { containerStyle, panelStyle, separatorStyle } from './styles';
+import '../Exercise/exercises.css'
 import { Values } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
 import valueProposition from '../../../assets/value_proposition.jpg'
@@ -57,45 +57,47 @@ const ValuesExercise: React.FC = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div style={containerStyle}>
-      <div style={panelStyle}>
-        <h2>{answers.left.title}</h2>
-        <p><i>{infotext}</i></p>
-        <p>{answers.left.description}</p>
-        <h3>{answers.left.question1.title}</h3>
-        <ExpandingTextArea
-          id="values-question1"
-          instructionText=""
-          value={answers.left.question1.answer}
-          onChange={handleAnswerChange('question1')}
-          rows={2}
-          readonly={readonly}
-        />
-        <h3>{answers.left.question2.title}</h3>
-        <ExpandingTextArea
-          id="values-question2"
-          instructionText=""
-          value={answers.left.question2.answer}
-          onChange={handleAnswerChange('question2')}
-          rows={2}
-          readonly={readonly}
-        />
-        <h3>{answers.left.question3.title}</h3>
-        <ExpandingTextArea
-          id="values-question3"
-          instructionText=""
-          value={answers.left.question3.answer}
-          onChange={handleAnswerChange('question3')}
-          rows={2}
-          readonly={readonly}
-        />
-      </div>
-      <div style={separatorStyle} />
-      <div style={panelStyle}>
-        <h2>"A successful value proposition ensures that the product or service is positioned around the customer's values ​​and needs."</h2>
-        <img src={valueProposition} alt="Value Proposition" style={{ width: '45%', marginTop: '100px' }} />
-      </div>
+  <div className="exercise-container">
+    <div className="exercise-panel">
+      <h2>{answers.left.title}</h2>
+      <p><i>{infotext}</i></p>
+      <p>{answers.left.description}</p>
+      <h3>{answers.left.question1.title}</h3>
+      <ExpandingTextArea
+        id="values-question1"
+        instructionText=""
+        value={answers.left.question1.answer}
+        onChange={handleAnswerChange('question1')}
+        rows={2}
+        readonly={readonly}
+      />
+      <h3>{answers.left.question2.title}</h3>
+      <ExpandingTextArea
+        id="values-question2"
+        instructionText=""
+        value={answers.left.question2.answer}
+        onChange={handleAnswerChange('question2')}
+        rows={2}
+        readonly={readonly}
+      />
+      <h3>{answers.left.question3.title}</h3>
+      <ExpandingTextArea
+        id="values-question3"
+        instructionText=""
+        value={answers.left.question3.answer}
+        onChange={handleAnswerChange('question3')}
+        rows={2}
+        readonly={readonly}
+      />
     </div>
+
+    <div className="exercise-separator" />
+
+    <div className="exercise-panel">
+      <h2>"A successful value proposition ensures that the product or service is positioned around the customer's values ​​and needs."</h2>
+      <img src={valueProposition} alt="Value Proposition" className="exercise-values-image" />
+    </div>
+  </div>
   );
 };
 
