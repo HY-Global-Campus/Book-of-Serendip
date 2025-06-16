@@ -60,7 +60,7 @@ const RedefineChallengeExercise: React.FC = () => {
 
   return (
   <div className="exercise-container">
-    <div className="redefine-panel">
+    <div className="exercise-panel">
       <h2>{answers.left.title}</h2>
       <p><i>{infotext}</i></p>
       <p>{answers.left.description}</p>
