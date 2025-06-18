@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Exercise/exercises.css'
+import './exercises.css'
 
 const Chapter1Banner: React.FC = () => {
   return (

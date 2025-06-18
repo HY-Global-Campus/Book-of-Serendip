@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import '../Exercise/exercises.css'
+import './exercises.css'
 import { FuturePitch } from '../../../types/exercises';
 import ChatBot from '../ChatBot';
 import { useExerciseContext } from './ExerciseContext';

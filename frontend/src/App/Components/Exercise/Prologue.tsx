@@ -1,7 +1,5 @@
 import React from 'react';
-//import { containerStyle, panelStyle, separatorStyle } from './styles';
-//import star from '../../../assets/star.png'
-import '../Exercise/exercises.css'
+import './exercises.css'
 
 const Prologue: React.FC = () => {
   return (

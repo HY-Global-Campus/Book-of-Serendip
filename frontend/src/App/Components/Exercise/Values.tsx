@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import '../Exercise/exercises.css'
+import './exercises.css'
 import { Values } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
 import valueProposition from '../../../assets/value_proposition.jpg'

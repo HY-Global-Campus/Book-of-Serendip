@@ -1,16 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import '../Exercise/exercises.css'
+import './exercises.css';
 import { FromFutureToPresent } from '../../../types/exercises';
 import StyledTextArea from './StyledTextArea';
 import { useExerciseContext } from './ExerciseContext';
 import ReadMore from '../ReadMore';
 
-
-
 const infotextQ1 = ``;
-
 const infotextQ2 = ``;
 
 const FromFutureToPresentExercise: React.FC = () => {
@@ -57,9 +53,10 @@ Make a timeline 2024-2050. Mark down all the significant steps and events that l
     }
   }, [bookOne]);
 
-
-
-  const handleAnswerChange = (side: 'left' | 'right', question?: 'question1' | 'question2' | 'question3' | 'question4' | 'question5' | 'question6') => (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleAnswerChange = (
+    side: 'left' | 'right',
+    question?: 'question1' | 'question2' | 'question3' | 'question4' | 'question5' | 'question6'
+  ) => (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = event.target.value;
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
@@ -72,68 +69,100 @@ Make a timeline 2024-2050. Mark down all the significant steps and events that l
     if (bookOne) {
       if (side === 'left') {
         bookOne.exercises.fromFutureToPresentAnswer.left.answer = value;
-      } else {
-        if (question !== undefined) {
-          bookOne.exercises.fromFutureToPresentAnswer.right[question].answer = value;
-        }
+      } else if (question) {
+        bookOne.exercises.fromFutureToPresentAnswer.right[question].answer = value;
       }
-
       onUpdateBookOne(bookOne);
     }
   };
-
-  const rowStyle: React.CSSProperties = {
-    display: 'flex',
-    justifyContent: 'space-between'
-  }
-
-  const numberStyle: React.CSSProperties = {
-    marginLeft: '1rem',
-    marginTop: '1rem',
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-  }
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
   return (
-  <div className="exercise-container">
-    <div className="exercise-panel">
-      <h2>{answers.left.title}</h2>
-      <ReadMore><i>{infotextQ1}</i></ReadMore>
-      <p>{answers.left.question}</p>
-      <ExpandingTextArea
-        id="from-future-to-present-left"
-        instructionText=""
-        value={answers.left.answer}
-        onChange={handleAnswerChange('left')}
-        rows={16}
-        readonly={readonly}
-      />
-    </div>
+    <div className="exercise-container">
+      <div className="exercise-panel">
+        <h2>{answers.left.title}</h2>
+        <ReadMore><i>{infotextQ1}</i></ReadMore>
+        <p>{answers.left.question}</p>
+        <ExpandingTextArea
+          id="from-future-to-present-left"
+          instructionText=""
+          value={answers.left.answer}
+          onChange={handleAnswerChange('left')}
+          rows={16}
+          readonly={readonly}
+        />
+      </div>
 
-    <div className="exercise-separator" />
+      <div className="exercise-separator" />
 
-    <div className="exercise-panel">
-      <h2>{answers.right.title}</h2>
-      <ReadMore><i>{infotextQ2}</i></ReadMore>
-      <p>{answers.right.description}</p>
-      <div style={{ marginTop: '1.5rem' }}>
-        {[2050, 2045, 2040, 2035, 2030, 2024].map((year, index) => (
-          <div className="exercise-timeline-row" key={year}>
-            <div className="exercise-timeline-year">{year}</div>
-            <StyledTextArea
-              id={`from-future-to-present-question${index + 1}`}
-              value={answers.right[`question${index + 1}`].answer}
-              onChange={handleAnswerChange('right', `question${index + 1}`)}
-              readonly={readonly}
-            />
-          </div>
-        ))}
+      <div className="exercise-panel">
+        <h2>{answers.right.title}</h2>
+        <ReadMore><i>{infotextQ2}</i></ReadMore>
+        <p>{answers.right.description}</p>
+
+        <div className="exercise-timeline-row">
+          <div className="exercise-timeline-year">2050</div>
+          <StyledTextArea
+            id="from-future-to-present-question1"
+            value={answers.right.question1.answer}
+            onChange={handleAnswerChange('right', 'question1')}
+            readonly={readonly}
+          />
+        </div>
+
+        <div className="exercise-timeline-row">
+          <div className="exercise-timeline-year">2045</div>
+          <StyledTextArea
+            id="from-future-to-present-question2"
+            value={answers.right.question2.answer}
+            onChange={handleAnswerChange('right', 'question2')}
+            readonly={readonly}
+          />
+        </div>
+
+        <div className="exercise-timeline-row">
+          <div className="exercise-timeline-year">2040</div>
+          <StyledTextArea
+            id="from-future-to-present-question3"
+            value={answers.right.question3.answer}
+            onChange={handleAnswerChange('right', 'question3')}
+            readonly={readonly}
+          />
+        </div>
+
+        <div className="exercise-timeline-row">
+          <div className="exercise-timeline-year">2035</div>
+          <StyledTextArea
+            id="from-future-to-present-question4"
+            value={answers.right.question4.answer}
+            onChange={handleAnswerChange('right', 'question4')}
+            readonly={readonly}
+          />
+        </div>
+
+        <div className="exercise-timeline-row">
+          <div className="exercise-timeline-year">2030</div>
+          <StyledTextArea
+            id="from-future-to-present-question5"
+            value={answers.right.question5.answer}
+            onChange={handleAnswerChange('right', 'question5')}
+            readonly={readonly}
+          />
+        </div>
+
+        <div className="exercise-timeline-row">
+          <div className="exercise-timeline-year">2024</div>
+          <StyledTextArea
+            id="from-future-to-present-question6"
+            value={answers.right.question6.answer}
+            onChange={handleAnswerChange('right', 'question6')}
+            readonly={readonly}
+          />
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 

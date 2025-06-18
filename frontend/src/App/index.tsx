@@ -22,6 +22,7 @@ import Chapter1Banner from './Components/Exercise/Chapter1Banner';
 import Chapter2Banner from './Components/Exercise/Chapter2Banner';
 import Chapter3Banner from './Components/Exercise/Chapter3Banner';
 import Chapter4Banner from './Components/Exercise/Chapter4Banner';
+import BusinessModelCanvas from './Components/Exercise/BusinessModelCanvas';
 
 const pages = [
   { path: '/', label: 'FrontPage', color: 'white' },
@@ -39,6 +40,7 @@ const pages = [
   { path: '/exercise/from-future-to-present', label: 'From Future to Present', color: 'black' },
   { path: '/exercise/future-pitch', label: 'Future Pitch', color: 'black' },
   { path: '/exercise/reflection', label: 'Reflection', color: 'black' },
+  { path: '/exercise/business-model-canvas', label: 'Business Model Canvas', color: 'black'},
 ];
 
 function App() {
@@ -84,6 +86,7 @@ function App() {
             <Route path="from-future-to-present" element={<FromFutureToPresentExercise />} />
             <Route path="future-pitch" element={<FuturePitchExercise />} />
             <Route path="reflection" element={<Reflection />} />
+            <Route path="business-model-canvas" element={<BusinessModelCanvas />} />
           </Route>
           <Route path="/endpage" element={<EndPage />} />
           <Route path='/view/:userId' element={<ViewAllExercises />} />
