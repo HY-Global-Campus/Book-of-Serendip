@@ -1,7 +1,7 @@
 # Canvas
 
 ## User
-```json
+```
 {
     id,
     mooc_id,
@@ -9,7 +9,7 @@
 }
 ```
 ## Course
-```json
+```
 {
     id,
     name,
@@ -20,7 +20,7 @@
 ```
 
 ## Page
-```json
+```
 {
     id,
     course_id,
@@ -32,7 +32,7 @@
 I was thinking if I should either build with schemas or just define every widget in code.
 Since we have no plans to support custom widgets (teacher defined), hard coded definitions in code is simpler.
 This means, that the widgets are just stored as a jsonb and DB does not know about their structure.
-```json
+```
 {
     id,
     type,
@@ -41,7 +41,7 @@ This means, that the widgets are just stored as a jsonb and DB does not know abo
 ```
  Widget can be any of:
 ### TextBoxExercise
-```json
+```
 {
     question,
     infotext,
@@ -49,13 +49,13 @@ This means, that the widgets are just stored as a jsonb and DB does not know abo
 }
 ```
 ### TextMaterial
-```json
+```
 {
     text
 }
 ```
 ### Image
-```json
+```
 {
     url,
     alt_text,
@@ -66,7 +66,7 @@ This means, that the widgets are just stored as a jsonb and DB does not know abo
 
 
 ### Chatbot
-```json
+```
 {
     welcome_text,
     prompt
@@ -74,7 +74,7 @@ This means, that the widgets are just stored as a jsonb and DB does not know abo
 ```
 
 ## Answer
-```json
+```
 {
     id,
     course_id,
