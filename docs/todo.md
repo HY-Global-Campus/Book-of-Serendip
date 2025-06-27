@@ -1,4 +1,30 @@
-# Wigets
+I have set docker-compose to to make build frontend and backend. If there are cors problem later,
+Henrik can help... Since login is disabled, using backend doesn't really work yet.
+
+
+# How the site should work
+
+Currently, we have a route per exercise and the site supports only one course with hardcoded material. We will now make it support multiple courses, where the material is stored in a postgres database. 
+You can find a rough design of how the data is represented [here](readme.md). 
+Basically, the routes will work like this:
+
+`<domain>/courses/<course_slug>/exercises/<exercise_id>`
+
+This version will not have any way to make new courses, we will add those directly to the database or develop some other way later. The most important is that users can login (moocfi login), see the material, do the exercises and download the finished canvas.
+
+You should make new models, services, and controllers for the backend. You can see how BookOne is currently done. (BookOne will be removed, replaced with the new models).
+
+You should make those for:
+
+* Course
+* Page
+* Answer
+
+You'll need to edit:
+* User
+
+
+# Widgets
 
 Widgets are saved to the database as a json blob, so the database will not know anything about their form. Widgets will be their own components. You can find that data a widget should have [here](readme.md#Widget)
 If all that seems confusing, you can start with just making the visuals and we can hook the actual data later. Feel free to add things if you thinks that something more is neccessary.
@@ -28,11 +54,18 @@ Answer {
 }
 ```
 
+
 For now atleast, let's not save chatbot discussions in DB.
+
+You can look in frontend -> src -> api and fronted -> src -> Pages -> ExercisePage to see how saving to the database is handled now. The frontend is calling routes defined in the backend controllers. In the frontend, react-query is used for state management and DB access. There is no other internal state besides that. (Execpt for zustand used for the mindmap, that should be removed with the mindmap. This means that the state.ts should be removed as well.)
+
+React-query is used with react hooks. It could be a good idea to study react hooks a little bit.
+(https://fullstackopen.com/en/part7/custom_hooks). (In the same fso chapter there is also a part about React Router, which is used as well in this project.)
 
 # Page
 
 Page should have a left part and a right part. (On mobile they are in a column).
+(We could add that if the right part is empty, the left part is rendered on the whole page?)
 One part has one widget. There will be a variable amount of pages per course and we
 need to render them with url parameters like /courses/course_slug/pages/page_id or /courses/course_slug/pages/page_slug. We also need to fetch all the page ids/slugs to a list that is used for the left/right navigation with buttons or arrow keys. 
 
@@ -47,3 +80,7 @@ or just figure something else if testing with users is needed. Or ignore for now
 
 * Change the login system to use mooc OAuth (which is not implemented yet)
 * Current uses simpler login at Accelbyte.
+
+# Tests
+
+The project does not have any tests. Adding some testing would be great :D.

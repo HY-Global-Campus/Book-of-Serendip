@@ -8,6 +8,8 @@ import cors from 'cors';
 import chatbotRouter from './controllers/chatbot.js';
 
 const app = express();
+
+
 app.use(cors());
 app.use(express.json());
 app.use('/login', loginRouter);
