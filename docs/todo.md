@@ -37,8 +37,8 @@ One part has one widget. There will be a variable amount of pages per course and
 need to render them with url parameters like /courses/course_slug/pages/page_id or /courses/course_slug/pages/page_slug. We also need to fetch all the page ids/slugs to a list that is used for the left/right navigation with buttons or arrow keys. 
 
 # Miscallaneous
-    * Remove maindmap things
-    * This includes zustand related things
+* Remove maindmap things
+* This includes zustand related things
 
 # OAuth support (client)
 
