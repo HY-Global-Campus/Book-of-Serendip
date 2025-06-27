@@ -1,11 +1,11 @@
 # Wigets
 
-Widgets are saved to the database as a json blob, so the database will now know anything about their form.Widgets will be their own components. You can find that data a widget should have [here](readme.md#Widget)
+Widgets are saved to the database as a json blob, so the database will not know anything about their form. Widgets will be their own components. You can find that data a widget should have [here](readme.md#Widget)
 If all that seems confusing, you can start with just making the visuals and we can hook the actual data later. Feel free to add things if you thinks that something more is neccessary.
 
 Widgets that have some user input should have a answer json associated with them.
 At this point, we have planned only TextBoxExercise which has answers.
-The answer object for this can look just like
+The answer json for this can look just like
 
 ```
 {
@@ -13,7 +13,7 @@ The answer object for this can look just like
 }
 ```
 
-This will then be put into a answer object (and to the database) like this:
+This will then be put into an answer object (and to the database) like this:
 
 ```
 Answer {
@@ -44,5 +44,6 @@ need to render them with url parameters like /courses/course_slug/pages/page_id 
 
 Not a priority. Either make this with OAuth standard and mock moocfi,
 or just figure something else if testing with users is needed. Or ignore for now.
-    * Change the login system to use mooc OAuth (which is not implemented yet)
-    * Current uses simpler login at Accelbyte.
+
+* Change the login system to use mooc OAuth (which is not implemented yet)
+* Current uses simpler login at Accelbyte.
