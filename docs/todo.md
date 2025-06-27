@@ -36,7 +36,7 @@ Page should have a left part and a right part. (On mobile they are in a column).
 One part has one widget. There will be a variable amount of pages per course and we
 need to render them with url parameters like /courses/course_slug/pages/page_id or /courses/course_slug/pages/page_slug. We also need to fetch all the page ids/slugs to a list that is used for the left/right navigation with buttons or arrow keys. 
 
-# Miscallaneous
+# Miscellaneous
 * Remove maindmap things
 * This includes zustand related things
 
