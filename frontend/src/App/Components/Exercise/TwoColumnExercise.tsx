@@ -48,10 +48,12 @@ const TwoColumnExercise: React.FC = () => {
     isLeft: boolean,
     index: number
   ) => {
-    // When user is at end of left textarea and presses right arrow or tab
-    if (isLeft && (e.key === 'Tab' || 
-        (e.key === 'ArrowRight' && 
-         e.currentTarget.selectionStart === e.currentTarget.value.length))) {
+    // When user is at end of left textarea and presses right arrow
+    if (
+      isLeft &&
+      e.key === 'ArrowRight' &&
+      e.currentTarget.selectionStart === e.currentTarget.value.length
+    ) {
       e.preventDefault();
       rightTextareaRefs.current[index]?.focus();
     }
