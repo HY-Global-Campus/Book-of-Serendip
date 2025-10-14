@@ -1,46 +1,33 @@
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import Mindmap from "./Pages/Mindmap";
 import FrontPage from './Pages/Frontpage';
+import AssignmentPage from './Pages/Assignment';
+import Part1Page from './Pages/Part1';
+import Part2Page from './Pages/Part2';
+import Part3Page from './Pages/Part3';
 import ExercisePage from './Pages/ExercisePage';
 import gothamNarrow from '../assets/Gotham-Narrow-Font-Family/GothamNarrow-Book.otf';
 import EndPage from './Pages/EndPage';
 import ProtectedRoute from './Components/ProtectedRoute';
 import Login from './Components/Login';
 import NavigationButtons from './Components/NavigationButtons';
-import ChooseChallengeExercise from './Components/Exercise/ChooseChallenge';
-import IdentifyLeveragePointsExercise from './Components/Exercise/IdentifyLeveragePoints';
-import RedefineChallengeExercise from './Components/Exercise/RedefineChallenge';
-import ValuesExercise from './Components/Exercise/Values';
-import FromFutureToPresentExercise from './Components/Exercise/FromFutureToPresent';
-import FuturePitchExercise from './Components/Exercise/FuturePitch';
 import Logout from './Components/Logout';
 import ViewAllExercises from './Pages/View';
-import Prologue from './Components/Exercise/Prologue';
-import Reflection from './Components/Exercise/Reflection';
-import Welcome from './Components/Exercise/Welcome';
-import Chapter1Banner from './Components/Exercise/Chapter1Banner';
-import Chapter2Banner from './Components/Exercise/Chapter2Banner';
-import Chapter3Banner from './Components/Exercise/Chapter3Banner';
-import Chapter4Banner from './Components/Exercise/Chapter4Banner';
-import BusinessModelCanvas from './Components/Exercise/BusinessModelCanvas';
+import TextExercise from './Components/Exercise/TextExercise';
+import TableExercise from './Components/Exercise/TableExercise';
+import TwoColumnExercise from './Components/Exercise/TwoColumnExercise';
+import LearningObjectivesExercise from './Components/Exercise/LearningObjectivesExercise';
+import { exercisesMeta } from '../content/exercises';
 
 const pages = [
   { path: '/', label: 'FrontPage', color: 'white' },
-  { path: '/exercise/welcome', label: 'Welcome', color: 'black' },
-  { path: '/exercise/prologue', label: 'Prologue', color: 'black' },
-  { path: '/exercise/chapter1', label: 'Chapter 1', color: 'black' },
-  { path: '/exercise/choose-challenge', label: 'Choose Challenge', color: 'black' },
-  { path: '/exercise/chapter2', label: 'Chapter 2', color: 'black' },
-  { path: '/mindmap', label: 'Mindmap', color: 'black' },
-  { path: '/exercise/identify-leverage-points', label: 'Identify Leverage Points', color: 'black' },
-  { path: '/exercise/redefine-challenge', label: 'Redefine Challenge', color: 'black' },
-  { path: '/exercise/chapter3', label: 'Chapter 3', color: 'black' },
-  { path: '/exercise/values', label: 'Values', color: 'black' },
-  { path: '/exercise/chapter4', label: 'Chapter 4', color: 'black' },
-  { path: '/exercise/from-future-to-present', label: 'From Future to Present', color: 'black' },
-  { path: '/exercise/future-pitch', label: 'Future Pitch', color: 'black' },
-  { path: '/exercise/reflection', label: 'Reflection', color: 'black' },
-  { path: '/exercise/business-model-canvas', label: 'Business Model Canvas', color: 'black'},
+  { path: '/assignment', label: 'Assignment', color: 'black' },
+  { path: '/part1', label: 'Part 1', color: 'black' },
+  ...exercisesMeta.slice(0, 2).map(e => ({ path: e.route, label: e.title, color: 'black' })), // Course Info and Learning Objectives
+  { path: '/part2', label: 'Part 2', color: 'black' },
+  ...exercisesMeta.slice(2, 4).map(e => ({ path: e.route, label: e.title, color: 'black' })), // Core Content and Teaching Methods
+  { path: '/part3', label: 'Part 3', color: 'black' },
+  ...exercisesMeta.slice(4, 6).map(e => ({ path: e.route, label: e.title, color: 'black' })), // Assessment Methods and Grading Criteria & Reflection
+  { path: '/endpage', label: 'End', color: 'black' },
 ];
 
 function App() {
@@ -71,22 +58,24 @@ function App() {
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/bos" element={<Navigate to="/" />} />
           <Route path="/" element={<FrontPage />} />
-          <Route path="/mindmap" element={<Mindmap />} />
+          <Route path="/assignment" element={<AssignmentPage />} />
+          <Route path="/part1" element={<Part1Page />} />
+          <Route path="/part2" element={<Part2Page />} />
+          <Route path="/part3" element={<Part3Page />} />
           <Route path="/exercise" element={<ExercisePage />}>
-            <Route path="welcome" element={<Welcome />} />
-            <Route path="prologue" element={<Prologue />} />
-            <Route path="chapter1" element={<Chapter1Banner />} />
-            <Route path="choose-challenge" element={<ChooseChallengeExercise />} />
-            <Route path="chapter2" element={<Chapter2Banner />} />
-            <Route path="identify-leverage-points" element={<IdentifyLeveragePointsExercise />} />
-            <Route path="redefine-challenge" element={<RedefineChallengeExercise />} />
-            <Route path="chapter3" element={<Chapter3Banner />} />
-            <Route path="values" element={<ValuesExercise />} />
-            <Route path="chapter4" element={<Chapter4Banner />} />
-            <Route path="from-future-to-present" element={<FromFutureToPresentExercise />} />
-            <Route path="future-pitch" element={<FuturePitchExercise />} />
-            <Route path="reflection" element={<Reflection />} />
-            <Route path="business-model-canvas" element={<BusinessModelCanvas />} />
+            {exercisesMeta.map(meta => (
+              <Route 
+                key={meta.id} 
+                path={meta.route.replace('/exercise/', '')} 
+                element={
+                  meta.id === 'learningObjectives' ? <LearningObjectivesExercise /> :
+                  meta.type === 'text' ? <TextExercise /> : 
+                  meta.type === 'table' ? <TableExercise /> : 
+                  meta.type === 'two-column' ? <TwoColumnExercise /> : 
+                  <TextExercise />
+                } 
+              />
+            ))}
           </Route>
           <Route path="/endpage" element={<EndPage />} />
           <Route path='/view/:userId' element={<ViewAllExercises />} />

@@ -1,12 +1,12 @@
 import { createContext, useContext } from 'react';
-import { BookOne } from '../../api/bookOneService';
+import { Course } from '../../api/courseService';
 
 interface ExerciseContextProps {
-  bookOne: BookOne | null;
+  bookOne: Course | null;
   loading: boolean;
   error: string | null;
   readonly: boolean;
-  onUpdateBookOne: (updatedBook: Partial<BookOne>) => void;
+  onUpdateBookOne: (updatedBook: Partial<Course>) => void;
 }
 
 export const ExerciseContext = createContext<ExerciseContextProps | undefined>(undefined);

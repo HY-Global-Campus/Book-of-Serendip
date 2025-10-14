@@ -4,6 +4,7 @@ import authMiddleware from './middlewares/auth.js'
 import User from './models/user.js';
 import { dbSync } from './services/database.js';
 import BookOneRouter from './controllers/BookOneController.js'
+import CourseRouter from './controllers/CourseController.js'
 import cors from 'cors';
 import chatbotRouter from './controllers/chatbot.js';
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use('/login', loginRouter);
 app.use('/chatbot', authMiddleware, chatbotRouter)
 app.use('/bookones', authMiddleware, BookOneRouter);
+app.use('/course', authMiddleware, CourseRouter);
 
 app.get('/', authMiddleware, async (_, res) => {
   res.status(200).send('Success');

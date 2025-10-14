@@ -1,21 +1,28 @@
+
+# backend/Dockerfile
+ARG NODE_ENV
 FROM node:20
 
 WORKDIR /usr/src/app
 
+# Copy manifests first for caching
 COPY package*.json ./
 
-ARG NODE_ENV
+# Install deps (dev deps only in development)
 RUN if [ "$NODE_ENV" = "development" ]; then \
-	npm ci --include=dev; \
+	npm ci; \
 	else \
-	npm ci --only=production; \
+	npm ci --omit=dev; \
 	fi
-RUN npm i -D tsx
+
+# Copy source
 COPY . .
+
+# Build only for production
+RUN if [ "$NODE_ENV" != "development" ]; then npm run build; fi
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "if [ \"$NODE_ENV\" = \"development\" ]; then npm run dev:watch; else npx tsx src/index.ts; fi"]
-
-
+# Dev: nodemon + ts-node/esm; Prod: compiled JS
+CMD ["sh", "-c", "if [ \"$NODE_ENV\" = \"development\" ]; then npm run dev:watch; else npm run start; fi"]
 

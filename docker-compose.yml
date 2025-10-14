@@ -1,21 +1,35 @@
+version: "3.9"
 
-version: '3'
 services:
   app:
-    build: ./backend/
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
-      - "8080:8080"
+    build: ./backend
     environment:
       NODE_ENV: development
       DATABASE_URL: postgres://user:password@db:5432/mydatabase
       JWT_SECRET: developmentsecret
       GCAI_URL: ${GCAI_URL}
       GCAI_TOKEN: ${GCAI_TOKEN}
+      # More reliable file watching inside containers (optional but helpful)
+      CHOKIDAR_USEPOLLING: "true"
+      CHOKIDAR_INTERVAL: "150"
+    ports:
+      - "8080:8080"
     depends_on:
       - db
+    # Use compose watch for live sync + auto rebuild when deps change
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /usr/src/app
+          ignore:
+            - node_modules/
+            - .git/
+            - dist/
+        - action: rebuild
+          path: ./backend/package.json
+        - action: rebuild
+          path: ./backend/package-lock.json
 
   db:
     image: postgres:13
@@ -27,12 +41,28 @@ services:
       - "5432:5432"
 
   frontend:
-    build: ./frontend/
-    volumes:
-      - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
-      - "5173:5173"
+    build: ./frontend
     environment:
       NODE_ENV: development
       VITE_API_URL: http://localhost:8080
+      # Optional: improves HMR file detection in Docker
+      CHOKIDAR_USEPOLLING: "true"
+      CHOKIDAR_INTERVAL: "150"
+    ports:
+      - "5173:5173"
+    depends_on:
+      - app
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /usr/src/app
+          ignore:
+            - node_modules/
+            - .git/
+            - dist/
+        - action: rebuild
+          path: ./frontend/package.json
+        - action: rebuild
+          path: ./frontend/package-lock.json
+

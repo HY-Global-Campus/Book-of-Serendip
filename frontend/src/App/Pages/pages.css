@@ -1,15 +1,17 @@
 /* Mobile-first defaults */
 
 /* FrontPage */
-
 .front-background {
-  background: url('../../assets/background.png') no-repeat center center;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* creates a parallax effect */
+  background: #2c2c2c; /* Dark gray background */
   min-height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Gotham Narrow', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
 }
 
 .front-container {
@@ -17,42 +19,102 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  color: white;
-  padding: 100px 20px 0 20px;
-  background: linear-gradient(to top, rgba(107, 143, 175, 0.75) 30%, rgba(0, 0, 0, 0)) 100%;
+  padding: 40px 20px;
 }
 
 .front-title {
-  font-size: 40px;
-  text-align: center;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.front-subtitle {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 40px;
 }
 
 .front-logo {
-  width: 250px;
-  height: auto;
-  margin-top: 30px;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.front-university {
+  font-size: 16px;
+  font-weight: normal;
 }
 
 /* Tablet styles (≥ 512px) */
 @media (min-width: 512px) {
   .front-title {
-    font-size: 60px;
+    font-size: 48px;
   }
-
+  
+  .front-subtitle {
+    font-size: 32px;
+  }
+  
   .front-logo {
-    width: 350px;
+    width: 80px;
+    height: 80px;
   }
 }
 
 /* Desktop styles (≥ 1024px) */
 @media (min-width: 1024px) {
   .front-title {
-    font-size: 100px;
+    font-size: 64px;
   }
-
+  
+  .front-subtitle {
+    font-size: 40px;
+  }
+  
   .front-logo {
-    width: 500px;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Large Desktop styles (≥ 1440px) */
+@media (min-width: 1440px) {
+  .front-title {
+    font-size: 80px;
+  }
+  
+  .front-subtitle {
+    font-size: 48px;
+  }
+  
+  .front-logo {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .front-university {
+    font-size: 20px;
+  }
+}
+
+/* Extra Large Desktop styles (≥ 1920px) */
+@media (min-width: 1920px) {
+  .front-title {
+    font-size: 96px;
+  }
+  
+  .front-subtitle {
+    font-size: 56px;
+  }
+  
+  .front-logo {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .front-university {
+    font-size: 24px;
   }
 }
 

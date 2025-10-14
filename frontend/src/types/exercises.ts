@@ -211,4 +211,33 @@ export interface BookOneExercises {
   futurePitchAnswer: FuturePitchAnswer;
 }
 
+export interface CourseExercises {
+  courseInfo?: {
+    name?: string;
+    scope?: string;
+    targetStudents?: string;
+    studentsSkillLevel?: string;
+  };
+  learningObjectives?: {
+    learningOutcomes?: string;
+  };
+  coreContent?: {
+    coreContentLeft?: string;
+    coreContentRight?: string;
+  };
+  teachingMethods?: {
+    value: string[][];
+  };
+  assessmentMethods?: {
+    value: string[][];
+  };
+  gradingCriteriaReflection?: {
+    gradingCriteria?: string;
+    reflection?: string;
+  };
+  // Keep only exercises that are actually used in the current course
+  // Remove: targetAudience, courseStructure, assessmentStrategy, resources, technology, timeline, evaluation
+  // (These were in exercisesMeta but removed from navigation in earlier changes)
+}
+
 

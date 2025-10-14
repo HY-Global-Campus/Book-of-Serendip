@@ -203,3 +203,50 @@ export interface FuturePitchAnswer {
 }
 
 export interface BookOneExercises {}
+
+export type CourseExercises = BookOneExercises & {
+  courseInfo?: {
+    Name?: string;
+    Scope?: string;
+    'Target students'?: string;
+    'Students\' skill level'?: string;
+  };
+  learningObjectives?: {
+    value: string[][];
+  };
+  coreContent?: {
+    'Core content'?: string;
+    ''?: string; // Right column field without label
+  };
+  teachingMethods?: {
+    value: string[][];
+  };
+  assessmentMethods?: {
+    value: string[][];
+  };
+  gradingCriteriaReflection?: {
+    'Grading criteria'?: string;
+    'Reflection'?: string;
+  };
+  targetAudience?: {
+    value: string;
+  };
+  courseStructure?: {
+    value: string[][];
+  };
+  assessmentStrategy?: {
+    value: string;
+  };
+  resources?: {
+    value: string[][];
+  };
+  technology?: {
+    value: string;
+  };
+  timeline?: {
+    value: string[][];
+  };
+  evaluation?: {
+    value: string;
+  };
+};

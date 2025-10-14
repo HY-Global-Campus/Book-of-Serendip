@@ -2,6 +2,7 @@
 import '../pages.css'
 import placeholderImage from '../../../assets/endpage-placeholder.jpg';
 import Header from '../../Components/Header'
+import { courseCopy } from '../../../content/copy';
 import { useNavigate } from "react-router";
 
 //   const navigationButtonStyle: CSSProperties = {
@@ -45,16 +46,29 @@ const EndPage = () => {
   return (
     <>
       <Header />
-      <div className="placeholder-wrapper">
-        <img
-          src={placeholderImage}
-          alt="Placeholder"
-          className="placeholder-image"
-        />
-        <div className="overlay-text">Under Construction</div>
-      </div>
-      <div onClick={() => navigate('/mindmap')} className="navigation-button">
-        {'<'}
+      <div className="exercise-container">
+        <div className="exercise-content">
+          <div className="exercise-single-column">
+            <div className="exercise-panel">
+              <h2 className="exercise-title" style={{ 
+                fontSize: '48px', 
+                marginBottom: '20px',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                color: '#000'
+              }}>
+                Share your course canvas
+              </h2>
+              <p className="exercise-description" style={{ 
+                fontSize: '20px',
+                textAlign: 'center',
+                color: '#000'
+              }}>
+                Link here... or canvas PDF
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
