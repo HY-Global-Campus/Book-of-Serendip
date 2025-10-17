@@ -6,9 +6,9 @@ COPY package*.json ./
 
 ARG NODE_ENV
 RUN if [ "$NODE_ENV" = "development" ]; then \
-	npm ci --include=dev; \
+	npm install --include=dev; \
 	else \
-	npm ci --only=production; \
+	npm install --only=production; \
 	fi
 RUN npm i -D tsx
 COPY . .
