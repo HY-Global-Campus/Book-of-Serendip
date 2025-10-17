@@ -9,7 +9,7 @@ import './styles.css'
 
 const ChatBot = () => {
   return (
-    <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <div>
       <Chatbot
         config={config}
         messageParser={MessageParser}
