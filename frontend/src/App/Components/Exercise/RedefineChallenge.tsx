@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import './exercises.css'
+import '../Exercise/exercises.css'
 import { RedefineChallenge } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
 const infotext = `Write a definition for the problem you have chosen. What exactly does it mean? Why is it a problem? What are the causes and consequences it implies?`;

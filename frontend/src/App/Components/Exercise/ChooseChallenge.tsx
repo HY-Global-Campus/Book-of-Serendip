@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
 import { ChooseChallenge } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
-import './exercises.css'
+import '../Exercise/exercises.css'; // or wherever your styles live
 
 const chosenChallengeInfoText = `Find a business-related challenge that you find meaningful or interesting.
 You can explore a range of challenges faced in the business world. 
@@ -30,25 +30,26 @@ const ChooseChallengeExercise: React.FC = () => {
 
   useEffect(() => {
     if (bookOne) {
-      setAnswers((prev) => ({
+      setAnswers({
         left: {
-          ...prev.left,
+          ...answers.left,
           answer: bookOne.exercises.chooseChallengeAnswer.left.answer || '',
         },
         right: {
-          ...prev.right,
+          ...answers.right,
           answer: bookOne.exercises.chooseChallengeAnswer.right.answer || '',
         },
-      }));
+      });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bookOne]);
 
-  const handleAnswerChange = (side: 'left' | 'right') => (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const value = event.target.value;
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
+  const handleAnswerChange = (side: 'left' | 'right') => (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    setAnswers((prev) => ({
+      ...prev,
       [side]: {
-        ...prevAnswers[side],
+        ...prev[side],
         answer: value,
       },
     }));
