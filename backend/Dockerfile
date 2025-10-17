@@ -1,7 +1,7 @@
-# backend/Dockerfile
-FROM node:20
 
+# backend/Dockerfile
 ARG NODE_ENV
+FROM node:20
 
 WORKDIR /usr/src/app
 
