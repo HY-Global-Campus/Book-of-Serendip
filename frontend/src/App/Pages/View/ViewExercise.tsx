@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, CSSProperties } from 'react';
 import { Outlet } from 'react-router-dom';
-import { getCourseByUserId, Course } from '../../api/courseService';
+import { getBookOneByUserId, BookOne } from '../../api/bookOneService';
 
 interface ViewExerciseProps {
   userId: string;
@@ -9,7 +9,7 @@ interface ViewExerciseProps {
 
 const ViewExercise: React.FC<ViewExerciseProps> = ({userId}) => {
 
-  const [bookOne, setBookOne] = useState<Course | null>(null);
+  const [bookOne, setBookOne] = useState<BookOne | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -17,7 +17,7 @@ const ViewExercise: React.FC<ViewExerciseProps> = ({userId}) => {
   useEffect(() => {
     const fetchBookOne = async () => {
       try {
-        const data = await getCourseByUserId(userId!);
+        const data = await getBookOneByUserId(userId!);
         setBookOne(data);
       } catch (err) {
         setError('Failed to fetch BookOne data');
