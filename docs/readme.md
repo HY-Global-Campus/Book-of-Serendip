@@ -23,7 +23,6 @@
 ```
 {
     id,
-    (slug?),
     course_id,
     left_widget,
     right_widget
@@ -60,7 +59,7 @@ This means, that the widgets are just stored as a jsonb and DB does not know abo
 {
     url,
     alt_text,
-    description,
+    desc,
     size
 }
 ```
