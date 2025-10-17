@@ -9,7 +9,6 @@ import FuturePitchExercise from '../../Components/Exercise/FuturePitch';
 import IdentifyLeveragePointsExercise from '../../Components/Exercise/IdentifyLeveragePoints';
 import RedefineChallengeExercise from '../../Components/Exercise/RedefineChallenge';
 import ValuesExercise from '../../Components/Exercise/Values';
-import BusinessModelCanvas from '../../Components/Exercise/BusinessModelCanvas';
 import { ReactFlow, Panel, NodeOrigin, Controls, ConnectionLineType } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import '../Mindmap/Flow.css';
@@ -141,10 +140,6 @@ const ViewAllExercises: React.FC = () => {
 
         <div style={sectionStyle}>
           <Reflection />
-        </div>
-
-        <div style={sectionStyle}>
-          <BusinessModelCanvas />
         </div>
       </ExerciseContext.Provider>
     </div>

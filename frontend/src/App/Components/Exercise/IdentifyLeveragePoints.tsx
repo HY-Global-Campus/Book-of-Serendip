@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import './exercises.css'
+import '../Exercise/exercises.css'
 import { IdentifyLeveragePoints } from '../../../types/exercises';
 import { useExerciseContext } from './ExerciseContext';
 
