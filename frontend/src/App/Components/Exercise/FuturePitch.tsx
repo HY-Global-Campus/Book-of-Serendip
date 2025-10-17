@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ExpandingTextArea from './ExpandingTextarea';
-import '../Exercise/exercises.css'
+import { containerStyle, panelStyle, separatorStyle } from './styles';
 import { FuturePitch } from '../../../types/exercises';
 import ChatBot from '../ChatBot';
 import { useExerciseContext } from './ExerciseContext';
@@ -52,29 +52,27 @@ const FuturePitchExercise: React.FC = () => {
   if (error) return <div>{error}</div>;
 
   return (
-  <div className="exercise-container">
-    <div className="exercise-panel">
-      <h2>{answers.left.title}</h2>
-      <p><i>{infotext}</i></p>
-      <ExpandingTextArea
-        id="future-pitch-text-area-left"
-        instructionText=""
-        value={answers.left.answer}
-        onChange={handleAnswerChange('left')}
-        rows={20}
-        readonly={readonly}
-      />
-    </div>
-
-    <div className="exercise-separator" />
-
-    <div className="exercise-panel">
-      <h2>Chat with Madida</h2>
-      <div className="exercise-chatbot-wrapper">
-        {!readonly && <ChatBot />}
+    <div style={containerStyle}>
+      <div style={panelStyle}>
+        <h2>{answers.left.title}</h2>
+        <p><i>{infotext}</i></p>
+        <ExpandingTextArea
+          id="future-pitch-text-area-left"
+          instructionText=""
+          value={answers.left.answer}
+          onChange={handleAnswerChange('left')}
+          rows={20}
+          readonly={readonly}
+        />
+      </div>
+      <div style={separatorStyle} />
+      <div style={panelStyle}>
+        <h2>Chat with Madida</h2>
+        <div style={{ margin: '80px' }}>
+          {!readonly && <ChatBot />}
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 

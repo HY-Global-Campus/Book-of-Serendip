@@ -1,6 +1,4 @@
-// import React, { useRef, CSSProperties } from 'react';
-import React, { useRef } from 'react';
-import '../pages.css'
+import React, { useRef, CSSProperties } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { debounce } from 'lodash';
@@ -65,11 +63,11 @@ const ExercisePage: React.FC = () => {
     debounce((updatedBook: Partial<BookOne>) => mutation.mutate(updatedBook), 500)
   ).current;
 
-  //const pageStyle: CSSProperties = {
-  //  padding: '0px 20px',
-  //};
+  const pageStyle: CSSProperties = {
+    padding: '0px 20px',
+  };
 
-  if (error) {
+    if (error) {
     if (axios.isAxiosError(error) && error.response?.status === 404) {
       sessionStorage.clear();
       return <Navigate to ="/login" />;
@@ -79,7 +77,7 @@ const ExercisePage: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="exercise-page">
+      <div style={pageStyle}>
         <ExerciseContext.Provider value={{ bookOne: bookOne || null, loading, error: error?.message || null, readonly: false, onUpdateBookOne: debouncedUpdateBookOne }}>
           <Outlet />
         </ExerciseContext.Provider>
